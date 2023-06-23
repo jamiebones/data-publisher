@@ -1,0 +1,22 @@
+{
+  "name": "iss-publisher",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node app.js",
+    "prod": "pm2 start app.js --name app --attach",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "streamr-client": "^8.5.3"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1"
+  }
+}
