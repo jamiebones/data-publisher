@@ -5,8 +5,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "node app.js",
-    "start": "pm2 start app.js --name app --attach",
+    "dev": "pm2 start app.js --name app --attach",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
