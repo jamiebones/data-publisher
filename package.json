@@ -1,12 +1,12 @@
 {
   "name": "iss-publisher",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "dev": "pm2 start app.js --name app --attach",
-    "start": "node dist/app.js",
-    "build": "babel src -d dist && npm prune --production",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,10 +16,5 @@
     "axios": "^1.4.0",
     "streamr-client": "^8.5.3",
     "dotenv": "^16.0.1"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.22.5",
-    "@babel/core": "^7.22.5",
-    "@babel/preset-env": "^7.22.5"
   }
 }
