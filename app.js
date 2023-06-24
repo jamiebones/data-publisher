@@ -1,11 +1,16 @@
 import dotenv from "dotenv";
+import http from "http";
 
+//if ( process.env.NODE_ENV == 'dev'){
 dotenv.config();
+//}
 
 import axios from "axios";
 import StreamrClient from "streamr-client";
 
-const { Private_Key, StreamID, BASE_URL, BASE_URL2 } = process.env;
+const { Private_Key, StreamID, BASE_URL2 } = process.env;
+
+console.log("Env variales : ", Private_Key, StreamID, BASE_URL2);
 
 const streamr = new StreamrClient({
   auth: {
@@ -110,8 +115,17 @@ const publishDataToStream = async function (issData) {
 };
 
 try {
+  http
+    .createServer(function (req, res) {
+      console.log(`Just got a request at ${req.url}!`);
+      res.write("Yo!");
+      res.end();
+    })
+    .listen(process.env.PORT || 3000);
   start(BASE_URL2);
 } catch (error) {
   console.log("There was an error ", error);
   clearInterval(interval);
+} finally {
+  start(BASE_URL2);
 }
