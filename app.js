@@ -23,7 +23,7 @@ const start = async (url) => {
   interval = setInterval(async () => {
     const issData = await getISSLocationData(url);
     publishDataToStream(issData);
-  }, 1000);
+  }, 5000);
 };
 
 const getISSLocationData = async (url) => {
@@ -115,17 +115,8 @@ const publishDataToStream = async function (issData) {
 };
 
 try {
-  http
-    .createServer(function (req, res) {
-      console.log(`Just got a request at ${req.url}!`);
-      res.write("Yo!");
-      res.end();
-    })
-    .listen(process.env.PORT || 3000);
   start(BASE_URL2);
 } catch (error) {
   console.log("There was an error ", error);
   clearInterval(interval);
-} finally {
-  start(BASE_URL2);
 }
