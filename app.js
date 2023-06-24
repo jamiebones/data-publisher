@@ -37,7 +37,7 @@ const getISSLocationData = async (url) => {
       solar_lon,
       units,
     } = response.data;
-    console.log("response ", response.data);
+    console.log("response is : ", response.data);
     return {
       name,
       id,
